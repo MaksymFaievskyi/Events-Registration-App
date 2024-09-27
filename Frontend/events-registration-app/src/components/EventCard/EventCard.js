@@ -25,6 +25,12 @@ const EventCard = ({ event }) => {
         <Typography variant="body2" color="text.secondary" className="event-description">
           {event.description}
         </Typography>
+        <Typography variant="body1" className="event-organizer">
+          Organizer: {event.organizer}
+        </Typography>
+        <Typography variant="body1" className="event-organizer">
+          Event date: {event.event_date.slice(0, 10)}
+        </Typography>
       </CardContent>
       <Box className="event-actions">
         <Button
@@ -32,7 +38,7 @@ const EventCard = ({ event }) => {
           variant="contained"
           color="primary"
           className="event-register"
-          onClick={handleRegisterClick} // Додаємо обробник натискання для реєстрації
+          onClick={handleRegisterClick}
         >
           Register
         </Button>
@@ -41,7 +47,7 @@ const EventCard = ({ event }) => {
           variant="text"
           color="primary"
           className="event-view"
-          onClick={handleViewClick} // Додаємо обробник натискання для перегляду учасників
+          onClick={handleViewClick}
         >
           View
         </Button>

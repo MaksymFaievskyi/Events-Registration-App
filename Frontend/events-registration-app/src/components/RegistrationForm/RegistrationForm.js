@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { TextField, Button, RadioGroup, FormControlLabel, Radio, Box, Typography } from '@mui/material'; // Додано Typography
 import './RegistrationForm.css'; // Імпортуємо CSS
@@ -7,10 +7,36 @@ const RegistrationForm = () => {
   const { id } = useParams(); // Отримуємо ID події з параметрів маршруту
   const navigate = useNavigate(); // Використовуємо хук useNavigate
 
+  const [errors, setErrors] = useState({}); // Для зберігання помилок валідації
+
+  const validate = (data) => {
+    const newErrors = {};
+    
+    // Validate Full Name
+    if (!data.fullName || !/^[a-zA-Z\s'-]+$/.test(data.fullName) || data.fullName.split(' ').length < 2) {
+      newErrors.fullName = "Full Name must contain at least two words and cannot include numbers or special characters.";
+    }
+
+    // Validate Email
+    if (!data.email || !/\S+@\S+\.\S+/.test(data.email)) {
+      newErrors.email = "Please enter a valid email address.";
+    }
+
+    // Validate Date of Birth
+    const dob = new Date(data.dateOfBirth);
+    const today = new Date();
+    console.log(dob);
+    
+    if (!data.dateOfBirth || dob >= today) {
+      newErrors.dateOfBirth = "Date of Birth must be a past date.";
+    }
+
+    return newErrors;
+  };
+
   const handleSubmit = async (event) => {
     event.preventDefault();
     const formData = new FormData(event.target);
-
     const participantData = {
       fullName: formData.get('fullName'),
       email: formData.get('email'),
@@ -18,12 +44,13 @@ const RegistrationForm = () => {
       source: formData.get('source'),
     };
 
+    const validationErrors = validate(participantData);
+    if (Object.keys(validationErrors).length > 0) {
+      setErrors(validationErrors);
+      return; // Stop submission if there are errors
+    }
+
     try {
-      // Відправляємо POST запит до API
-      console.log(`http://localhost:3000/events/${id}`);
-      console.log(participantData);
-      
-      
       const response = await fetch(`http://localhost:3000/events/${id}`, {
         method: 'POST',
         headers: {
@@ -33,7 +60,6 @@ const RegistrationForm = () => {
       });
 
       if (response.ok) {
-        // Перенаправлення після успішної реєстрації
         navigate(`/events`);
       } else {
         console.error('Failed to register participant');
@@ -52,6 +78,8 @@ const RegistrationForm = () => {
         fullWidth
         margin="normal"
         required
+        error={Boolean(errors.fullName)}
+        helperText={errors.fullName}
       />
       <TextField
         name="email"
@@ -61,6 +89,8 @@ const RegistrationForm = () => {
         fullWidth
         margin="normal"
         required
+        error={Boolean(errors.email)}
+        helperText={errors.email}
       />
       <TextField
         name="dateOfBirth"
@@ -73,8 +103,10 @@ const RegistrationForm = () => {
           shrink: true,
         }}
         required
+        error={Boolean(errors.dateOfBirth)}
+        helperText={errors.dateOfBirth}
       />
-      <Typography variant="subtitle1">Where did you hear about this event?</Typography> {/* Додано Typography */}
+      <Typography variant="subtitle1">Where did you hear about this event?</Typography>
       <RadioGroup name="source" required>
         <FormControlLabel value="Social Media" control={<Radio />} label="Social Media" />
         <FormControlLabel value="Friend" control={<Radio />} label="Friend" />

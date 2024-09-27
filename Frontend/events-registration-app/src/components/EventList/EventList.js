@@ -13,6 +13,7 @@ const EventList = ({ events }) => {
 
   const indexOfLastEvent = currentPage * eventsPerPage;
   const indexOfFirstEvent = indexOfLastEvent - eventsPerPage;
+  console.log(events);
   
   const currentEvents = events.slice(indexOfFirstEvent, indexOfLastEvent);
 
