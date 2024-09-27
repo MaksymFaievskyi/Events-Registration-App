@@ -2,14 +2,14 @@ import React, { useState, useEffect } from 'react';
 import EventList from '../../components/EventList/EventList';
 import { Container, Typography, FormControl, Select, MenuItem, InputLabel, Box } from '@mui/material';
 import axios from 'axios';
-import './EventPage.css'; // Імпортуємо CSS
+import './EventPage.css';
 
 const EventsPage = () => {
   const [events, setEvents] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const [sortOption, setSortOption] = useState('title'); // Default sort option: title
-  const [sortDirection, setSortDirection] = useState('asc'); // Default sort direction: ascending
+  const [sortOption, setSortOption] = useState('title');
+  const [sortDirection, setSortDirection] = useState('asc');
 
   useEffect(() => {
     const fetchEvents = async () => {
@@ -39,7 +39,6 @@ const EventsPage = () => {
       if (sortOption === 'title') {
         return a.title.localeCompare(b.title);
       } else if (sortOption === 'date') {
-        // Перетворюємо строки з датами на об'єкти Date для порівняння
         return new Date(a.event_date) - new Date(b.event_date);
       } else if (sortOption === 'organizer') {
         return a.organizer.localeCompare(b.organizer);
@@ -47,7 +46,6 @@ const EventsPage = () => {
       return 0;
     });
 
-    // Застосовуємо напрямок сортування
     return sortDirection === 'asc' ? sortedEvents : sortedEvents.reverse();
   };
 

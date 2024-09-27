@@ -1,7 +1,6 @@
-// src/components/ParticipantCard/ParticipantCard.js
 import React from 'react';
 import { Card, CardContent, Typography } from '@mui/material';
-import './ParticipantCard.css'; // Optional: Create a CSS file for additional styling
+import './ParticipantCard.css';
 
 const ParticipantCard = ({ participant }) => {
   return (

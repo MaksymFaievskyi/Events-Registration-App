@@ -2,7 +2,7 @@ import React from 'react';
 import { Container, Typography } from '@mui/material';
 import { useParams } from 'react-router-dom';
 import RegistrationForm from '../../components/RegistrationForm/RegistrationForm';
-import './EventRegistrationPage.css'; // Імпортуємо CSS
+import './EventRegistrationPage.css';
 
 const EventRegistrationPage = () => {
   const { id: eventId } = useParams(); // Отримуємо ID з параметрів маршруту

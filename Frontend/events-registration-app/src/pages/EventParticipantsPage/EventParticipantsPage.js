@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { Container, Typography, Box, Grid, Pagination, CircularProgress, TextField } from '@mui/material';
 import axios from 'axios';
-import ParticipantCard from '../../components/ParticipantCard/ParticipantCard'; // Ensure this path is correct
-import { useParams } from 'react-router-dom'; // Import useParams
-import './EventParticipantsPage.css'; // Add styling for the participants page if needed
+import ParticipantCard from '../../components/ParticipantCard/ParticipantCard';
+import { useParams } from 'react-router-dom';
+import './EventParticipantsPage.css'; 
 
 const EventParticipantsPage = () => {
   const { id: eventId } = useParams(); // Get the event ID from the URL parameters
@@ -11,15 +11,14 @@ const EventParticipantsPage = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [currentPage, setCurrentPage] = useState(1);
-  const [searchQuery, setSearchQuery] = useState(''); // State for search query
-  const participantsPerPage = 9; // Adjust as needed
+  const [searchQuery, setSearchQuery] = useState('');
+  const participantsPerPage = 9; 
 
   useEffect(() => {
     const fetchParticipants = async () => {
       try {
-        const response = await axios.get(`http://localhost:3000/events/${eventId}`); // Call the correct API endpoint
-        
-        setParticipants(response.data.participants); // Adjust based on your API response structure
+        const response = await axios.get(`http://localhost:3000/events/${eventId}`);
+        setParticipants(response.data.participants); 
         setLoading(false);
       } catch (err) {
         setError('Failed to fetch participants');
@@ -76,7 +75,7 @@ const EventParticipantsPage = () => {
 
       <Box className="pagination">
         <Pagination
-          count={Math.ceil(filteredParticipants.length / participantsPerPage)} // Update to use filteredParticipants
+          count={Math.ceil(filteredParticipants.length / participantsPerPage)}
           page={currentPage}
           onChange={(event, value) => setCurrentPage(value)}
           disabled={filteredParticipants.length === 0} // Disable pagination if no participants

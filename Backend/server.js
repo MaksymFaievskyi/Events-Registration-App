@@ -1,7 +1,9 @@
 const app = require("./app");
 const mongoose = require('mongoose');
+const dotenv = require('dotenv');
 
-const db = "mongodb://appuser:apppassword@127.0.0.1:27017/EventsDB";
+dotenv.config({ path: './config.env' });
+const db = process.env.DATABASE;
 
 mongoose.connect(db).then(() => {
     console.log('Db connection is successful');

@@ -24,7 +24,7 @@ const participantSchema = new mongoose.Schema({
     },
     source: {
         type: String,
-        enum: ['Social Media', 'Friend', 'Myself', "Other"], // You can adjust these options as necessary
+        enum: ['Social Media', 'Friend', 'Myself', "Other"],
         required: true,
     }
 }, {

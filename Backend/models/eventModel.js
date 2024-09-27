@@ -22,10 +22,10 @@ const eventSchema = new mongoose.Schema({
     },
     participants: [{
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'Participant' // Reference to the Participant model
+        ref: 'Participant' 
     }]
 }, {
-    timestamps: true // Automatically adds createdAt and updatedAt fields
+    timestamps: true
 });
 
 const Event = mongoose.model('Event', eventSchema);

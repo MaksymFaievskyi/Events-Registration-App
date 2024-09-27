@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { TextField, Button, RadioGroup, FormControlLabel, Radio, Box, Typography } from '@mui/material'; // Додано Typography
-import './RegistrationForm.css'; // Імпортуємо CSS
+import { TextField, Button, RadioGroup, FormControlLabel, Radio, Box, Typography } from '@mui/material';
+import './RegistrationForm.css'; 
 
 const RegistrationForm = () => {
   const { id } = useParams(); // Отримуємо ID події з параметрів маршруту
-  const navigate = useNavigate(); // Використовуємо хук useNavigate
+  const navigate = useNavigate();
 
-  const [errors, setErrors] = useState({}); // Для зберігання помилок валідації
+  const [errors, setErrors] = useState({}); 
 
   const validate = (data) => {
     const newErrors = {};

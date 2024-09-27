@@ -22,7 +22,7 @@ const EventList = ({ events }) => {
       <Grid container spacing={3}>
         {currentEvents.map((event) => (
           <Grid item xs={12} sm={6} md={4} key={event.id}>
-            <EventCard event={event} data-id={event._id} /> {/* Додаємо ID події тут */}
+            <EventCard event={event} data-id={event._id} />
           </Grid>
         ))}
       </Grid>

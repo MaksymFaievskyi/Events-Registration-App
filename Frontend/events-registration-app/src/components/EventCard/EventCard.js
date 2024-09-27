@@ -1,17 +1,15 @@
 import React from 'react';
 import { Card, CardContent, Typography, Button, Box } from '@mui/material';
-import { useNavigate } from 'react-router-dom'; // Імпортуємо useNavigate
+import { useNavigate } from 'react-router-dom';
 import './EventCard.css';
 
 const EventCard = ({ event }) => {
-  const navigate = useNavigate(); // Ініціалізуємо useNavigate
+  const navigate = useNavigate();
 
-  // Функція для обробки натискання кнопки "Register"
   const handleRegisterClick = () => {
     navigate(`/register/${event._id}`); // Перенаправляємо на сторінку реєстрації з id події
   };
 
-  // Функція для обробки натискання кнопки "View"
   const handleViewClick = () => {
     navigate(`/participants/${event._id}`); // Перенаправляємо на сторінку учасників з id події
   };
