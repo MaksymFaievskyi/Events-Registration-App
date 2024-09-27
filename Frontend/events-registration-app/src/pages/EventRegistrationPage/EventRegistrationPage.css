@@ -1,0 +1,17 @@
+/* EventRegistrationPage.css */
+
+.registration-container {
+    padding: 40px 0; /* Відступи */
+    background-color: #f0f2f5; /* Світлий фон для сторінки */
+    min-height: 100vh; /* Мінімальна висота */
+    position: relative;
+    overflow: hidden; /* Додаємо цю стрічку */
+  }
+  
+  .registration-title {
+    text-align: left;
+    margin-bottom: 20px; /* Відступ знизу */
+    color: #1976d2; /* Синій колір для заголовка */
+  }
+
+

@@ -1,0 +1,7 @@
+/* RegistrationForm.css */
+
+.registration-form {
+    display: flex; /* Використовуємо flexbox для оформлення */
+    flex-direction: column; /* Вирівнюємо елементи в колонку */
+    margin-top: 20px; /* Відступ зверху */
+  }

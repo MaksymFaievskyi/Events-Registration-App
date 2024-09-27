@@ -1,0 +1,30 @@
+.event-card {
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: #ffffff; /* Білий фон для картки */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Тінь */
+  border-radius: 8px; /* Закруглені кути */
+}
+
+.event-title {
+  font-weight: bold;
+  color: #333; /* Темний текст */
+}
+
+.event-description {
+  margin-top: 10px;
+  color: #666; /* Сірий текст для опису */
+}
+
+.event-actions {
+  display: flex;
+  justify-content: space-between;
+  padding: 16px;
+}
+
+.event-register,
+.event-view {
+  text-transform: none;
+}

@@ -1,0 +1,17 @@
+.app-container {
+    padding: 40px 0;
+    background-color: #f0f2f5; /* Світлий фон для сторінки */
+    min-height: 100vh;
+    position: relative;
+    overflow: hidden; /* Додаємо цю стрічку */
+    padding: 50px;
+}
+
+.app-title {
+    text-align: left;
+    margin-bottom: 20px;
+    color: #1976d2; /* Синій колір для заголовка */
+}
+body {
+    background-color: #f0f2f5;
+}

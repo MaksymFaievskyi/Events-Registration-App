@@ -1,0 +1,18 @@
+.event-list-container {
+    width: 100%;
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .pagination {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #fff; /* Білий фон для пагінації */
+    padding: 10px;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1); /* Тінь над пагінацією */
+    display: flex;
+    justify-content: center;
+  }
+  

@@ -1,0 +1,16 @@
+.app-container {
+    padding: 40px 0;
+    background-color: #f0f2f5; /* Light background for the page */
+}
+
+.app-title {
+    text-align: left;
+    margin: 40px;
+    color: #1976d2; /* Blue color for the title */
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
